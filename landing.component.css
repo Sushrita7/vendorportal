@@ -1,0 +1,144 @@
+*{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.card {
+    margin-top: 10%;
+    margin-left:25%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.7);
+  /* transition: 0.3s; */
+  width: 100%;
+  /* border-radius: 20px; */
+  height:100%;
+  background: rgb(90, 202, 247);
+  
+}
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+/* 
+img {
+  border-radius: 5px 5px 0 0;
+  background: black;
+  border: black;
+} */
+
+.container {
+  padding: 2px 16px;
+}
+
+.hdr {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-top: 30px;
+  background-color:   rgb(90, 202, 247);
+}
+
+/* Logo */
+.logo {
+  text-align: center;
+}
+.logo h3 {
+  color: #000;
+  font-size: 1.8rem;
+}
+
+.logo h3 span {
+  background-color: #fff;
+  padding: 3px 8px;
+  text-align: center;
+  margin-left: 5px;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu li {
+  margin: 0px 10px;
+}
+.menu li a:hover{
+  color: white;
+}
+.hdr label {
+  position: absolute;
+  top: 35px;
+  right: 40px;
+  cursor: pointer;
+  display: none;
+}
+
+.hdr label i {
+  color: #000;
+  font-size: 1.7rem;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+  transition: all 0.3s ease-in;
+}
+
+li {
+  list-style: none;
+  transition: all 0.3s ease-in;
+}
+
+
+@media (max-width: 550px) {
+  /* Header */
+  .hdr .menu {
+    position: absolute;
+    background-color: #7ed6df;
+    width: 100%;
+    flex-direction: column;
+    padding: 10px 0;
+    top: 80px;
+    left: -100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease-in;
+    z-index: 10;
+  }
+
+  .hdr .menu li {
+    margin: 10px 0;
+  }
+
+  .hdr label:nth-child(2) {
+    display: block;
+  }
+
+  /* Container */
+  .container .content,
+  .container .bg-image {
+    width: 300px;
+  }
+
+  /* Mobile Menu */
+  #menu-dis:checked ~ .menu {
+    left: 0;
+    max-height: 100%;
+  }
+
+  #menu-dis:checked ~ label:nth-child(2) {
+    display: none;
+  }
+
+  #menu-dis:checked ~ label:nth-child(3) {
+    display: block;
+  }
+}
+
+  

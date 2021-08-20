@@ -1,0 +1,109 @@
+
+<html>
+  <body>
+      <div style="margin-left: 28%;overflow-y: scroll;height: 100%;overflow-x: hidden;"> 
+        <div style="margin-left: 10%; ">
+          <h1 style="margin-left:25%;margin-top: 3%;">Invoice Details</h1>
+          <div id="card"  style="margin-left: 9%;margin-top: 3%;">
+          <label style="margin-left:10%;">Invoice Number </label>
+          <input  type="text" [(ngModel)]="inv_num" placeholder="Invoice Number" style="margin-left: 8%;">
+          <br>
+          <label style="margin-left: 10%;">Fiscal Year </label>
+          <input type="text" [(ngModel)]="year" placeholder="Year" style="margin-left: 8%;">
+          <div>
+          <input type="submit" (click)="get_invoice()" style="margin-left: 38%;padding: 12px;font-size: 105%;border-radius: 9%;margin-top: 3%;">
+          
+          </div>
+        </div>
+        </div>       
+        <button  (click)="show_invoice_num()" style="margin-left: 40%;margin-top:2%;padding: 15px;font-size: 105%;border-radius: 9%;" >Data</button> 
+      
+      
+        
+        <div *ngIf="show_table" style="margin-right: 10%;margin-top: 5%;">
+        <div *ngIf="show_inv" >
+          <h3 style="text-align: center;">Invoice Number</h3>
+          <table datatable class="row-border hover" id="example" style="margin-top: 15%;">
+            <thead style="background-color: rgb(5, 184, 255);padding: 10px;margin-top: 6%;">
+              <tr style="text-align: center;">
+                  <!-- style="padding-left: 15px;padding-right: 40px" -->
+                <th>Vendor Id</th>
+                <th>Invoice Number</th>
+                <th>Fiscal year</th>
+                
+                <!-- <th> BLDAT </th> -->
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let knhs of show_inv" style="background-color:#e2e2e2;text-align: center;" (click)="populate_value(knhs.BELNR._text,knhs.GJAHR._text)">
+                <td>{{knhs.LIFNR._text}}</td>
+                <td>{{knhs.BELNR._text}}</td>
+                <td>{{knhs.GJAHR._text}}</td>
+                
+                <!-- <td>{{knhs.BLDAT._text}}</td> -->
+               
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+        <br><br>
+      
+        <iframe id="inv" width="70%" height="100%" style="margin-left: 13%;"></iframe>
+      </div>
+      <nav class="mainmenu">
+        <div  routerLink="/dashboardv" class="sidebar-logo">
+          VENDOR PORTAL
+          </div>
+        <ul>
+          <li class="dropdown"  ><a><i class="fa fa-users fa-2x" style="padding-right: 10px;"></i>Profile <span>&rsaquo;</span></a>
+          <ul>
+            <li><a routerLink="/details">View</a></li>
+            <li><a routerLink="/detailsupdate">Edit</a></li>
+          </ul>
+          </li>
+          <li class="dropdown"><a> <i class="fa fa-laptop fa-2x" style="padding-right: 10px;"></i>Dashboard <span>&rsaquo;</span></a>
+             <ul>
+                <li><a routerLink="/request">Request for Quotation</a></li>
+                <li><a routerLink="/purchase">Purchase Order</a></li>
+                <li><a routerLink="/goods">Goods Receipt</a></li>
+              </ul>
+          </li>
+          <li class="dropdown"><a><i class="fa fa-bar-chart-o fa-2x" style="padding-right: 10px;"></i> Finanicial sheet <span>&rsaquo;</span></a>
+             <ul>
+             <li><a routerLink="/invoicee">Invoice details</a></li>
+             <li><a routerLink="/payment">Payments and aging</a></li>
+             <li><a routerLink="/creditmemo">Credit Memo</a></li>
+             <li><a routerLink="/debitmemo">Debit Memo</a></li>
+             </ul>
+          </li>
+          <!-- <li><a routerLink="/masterdata"> <i class="fa fa-upload fa-2x" style="padding-right: 10px;"></i>Master Data Upload</a></li> -->
+    
+          
+        </ul>
+    
+      </nav>
+      <nav >
+      <ul>
+       
+         <a routerLink="/loginv" class="logout">
+           <div style="display: flex;">
+             <div style=" padding-right: 10px;"><i class="fa fa-power-off fa-2x"></i></div>
+             <div> Logout</div>
+           </div>
+               
+         </a>
+    
+       
+     </ul>
+    </nav>
+    
+      
+  </body>
+  
+  </html>
+  
+  
+  

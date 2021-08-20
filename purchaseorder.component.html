@@ -1,0 +1,143 @@
+<html>
+    <body>
+        <div style="margin-left: 20%;overflow-y: scroll;height: 100%;overflow-x: hidden;">
+          
+      <!-- <div style="margin-left: 20%;overflow-y: scroll;height: 100%;overflow-x: hidden;">         -->
+        <!-- <div *ngIf="header" style="margin-top:15px;margin-right:5%;"> -->
+            <div class="sc">  
+                <div *ngIf="header" style="margin-top:15px;margin-right:5%">      
+                <div *ngIf="purchaseh" style="margin-top: auto;margin-right:5% ;">
+                <h2 style="text-align: center;">Purchase Order Header Data</h2>
+                <table datatable class="row-border hover" class="content-table" id="example" style="padding: 30px;">
+                  <thead style="background-color: rgb(5, 184, 255);" > 
+                    <tr>
+                      <th>Document No</th>
+                      <th>Company Code</th>
+                      <th>Category</th>
+                      <th >Group</th>
+                      <th>Quotation Deadline</th>
+                      <!-- <th>Created By</th> -->
+                      <!-- <th>Interval</th> -->
+                      <!-- <th>Last Item</th> -->
+                      <!-- <th>Language</th> -->
+                      <!-- <th>Exchange rate</th> -->
+                      <!-- <th>Warranty</th> -->
+                    
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let knhs of purchaseh"(click)="showitem(knhs.PO_NUMBER._text)" style="background-color: white;text-align: center;">
+                      <td>{{knhs.PO_NUMBER._text}}</td>
+                      <td>{{knhs.CO_CODE._text}}</td>
+                      <td>{{knhs.DOC_CAT._text}}</td>
+                      <td>{{knhs.UPDATE_GRP._text}}</td>
+                      <!-- <td>{{knhs.CREATED_ON._text}}</td> -->
+                      <td>{{knhs.QUOT_DEAD._text}}</td>
+                      <!-- <td>{{knhs.ITEM_INTVL._text}}</td> -->
+                      <!-- <td>{{knhs.LAST_ITEM._text}}</td> -->
+                      <!-- <td>{{knhs.LANGUAGE._text}}</td> -->
+                      <!-- <td>{{knhs.EXCH_RATE._text}}</td> -->
+                      <!-- <td>{{knhs.WARRANTY._text}}</td> -->
+                    </tr>
+                  </tbody>
+                </table>
+                
+              </div>
+            </div>
+            <div *ngIf="!header">      
+                <div *ngIf="purchasei" style="margin-top: auto;margin-right:5% ;">
+                <h2 style="text-align: center;">Purchase Order Item Data</h2>
+                <table datatable class="row-border hover" class="content-table" id="example" style="padding: 30px;">
+                  <thead style="background-color: rgb(5, 184, 255);" > 
+                    <tr>
+                      <th>Document No</th>
+                      <th>Company Code</th>
+                      <th>Category</th>
+                      <th >Group</th>
+                      <th>Quotation Deadline</th>
+                      <!-- <th>Created By</th> -->
+                      <!-- <th>Interval</th> -->
+                      <!-- <th>Last Item</th> -->
+                      <!-- <th>Language</th> -->
+                      <!-- <th>Exchange rate</th> -->
+                      <!-- <th>Warranty</th> -->
+                    
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let knhs of filtereddata" style="background-color: white;text-align: center;">
+                      <td>{{knhs.PO_NUMBER._text}}</td>
+                      <td>{{knhs.CO_CODE._text}}</td>
+                      <td>{{knhs.DOC_CAT._text}}</td>
+                      
+                      <td>{{knhs.UPDATE_GRP._text}}</td>
+                      <td>{{knhs.QUOT_DEAD._text}}</td>
+                      <!-- <td>{{knhs.CREATED_BY._text}}</td> -->
+                      <!-- <td>{{knhs.ITEM_INTVL._text}}</td> -->
+                      <!-- <td>{{knhs.LAST_ITEM._text}}</td> -->
+                      <!-- <td>{{knhs.LANGUAGE._text}}</td> -->
+                      <!-- <td>{{knhs.EXCH_RATE._text}}</td> -->
+                      <!-- <td>{{knhs.WARRANTY._text}}</td> -->
+                    </tr>
+                  </tbody>
+                </table>
+                
+              </div>
+              <button style="padding: 20px;margin-left: 50px;margin-top:2%;padding-left: 25px;padding-right: 25px;font-weight: medium;"   (click)="goback()" >Back</button>
+            </div>
+
+                
+
+        
+
+        </div>
+        
+        </div>
+        <nav class="mainmenu">
+            <div  routerLink="/dashboardv" class="sidebar-logo">
+              VENDOR PORTAL
+              </div>
+            <ul>
+              <li class="dropdown"  ><a><i class="fa fa-users fa-2x" style="padding-right: 10px;"></i>Profile <span>&rsaquo;</span></a>
+              <ul>
+                <li><a routerLink="/details">View</a></li>
+                <li><a routerLink="/detailsupdate">Edit</a></li>
+              </ul>
+              </li>
+              <li class="dropdown"><a> <i class="fa fa-laptop fa-2x" style="padding-right: 10px;"></i>Dashboard <span>&rsaquo;</span></a>
+                 <ul>
+                    <li><a routerLink="/request">Request for Quotation</a></li>
+                    <li><a routerLink="/purchase">Purchase Order</a></li>
+                    <li><a routerLink="/goods">Goods Receipt</a></li>
+                  </ul>
+              </li>
+              <li class="dropdown"><a><i class="fa fa-bar-chart-o fa-2x" style="padding-right: 10px;"></i> Finanicial sheet <span>&rsaquo;</span></a>
+                 <ul>
+                 <li><a routerLink="/invoicee">Invoice details</a></li>
+                 <li><a routerLink="/payment">Payments and aging</a></li>
+                 <li><a routerLink="/creditmemo">Credit memo</a></li>
+                 <li><a routerLink="/debitmemo">Debit memo</a></li>
+                 </ul>
+              </li>
+             
+              
+            </ul>
+        
+          </nav>
+          <nav >
+          <ul>
+           
+             <a routerLink="/loginv" class="logout">
+               <div style="display: flex;">
+                 <div style="padding-right: 10px;"><i class="fa fa-power-off fa-2x"></i></div>
+                 <div> Logout</div>
+               </div>
+                   
+             </a>
+        
+           
+         </ul>
+        </nav>
+
+    </body>
+</html>

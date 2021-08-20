@@ -1,0 +1,92 @@
+<html>
+    <body>
+        <div>
+            <div class="sc" style="margin-left: 20%;height: 100%;">        
+                <div *ngIf="pay" style="margin-top: auto;margin-right:5% ;">
+                <h2 style="text-align: center;">Payment and Aging</h2>
+                <table datatable class="row-border hover" class="content-table" id="example" style="padding: 30px;">
+                  <thead style="background-color: rgb(5, 184, 255);" > 
+                    <tr>
+                      <th>Company Code</th>
+                      <th>Fiscal Year</th>
+                      <th>Document No</th>
+                      <th >Item No</th>
+                      <th>Posting Date</th>
+                      <!-- <th>Entry Date</th> -->
+                      <th>Currency</th>
+                      <th>Amount in Document Currency</th>
+                      <!-- <th>Amount</th> -->
+                      <th>Net Amount</th>
+                    
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let knhs of pay" style="background-color: white;text-align: center;">
+                      <td>{{knhs.COMP_CODE._text}}</td>
+                      <td>{{knhs.FISC_YEAR._text}}</td>
+                      <td>{{knhs.DOC_NO._text}}</td>
+                      <td>{{knhs.ITEM_NUM._text}}</td>
+                      <td>{{knhs.PSTNG_DATE._text}}</td>
+                      <!-- <td>{{knhs.DOC_DATE._text}}</td> -->
+                      <!-- <td>{{knhs.ENTRY_DATE._text}}</td> -->
+                      <td>{{knhs.CURRENCY._text}}</td>
+                      <!-- <td>{{knhs._AMOUNT._text}}</td> -->
+                      <td>{{knhs.AMT_DOCCUR._text}}</td>
+                      <td>{{knhs.NET_AMOUNT._text}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                
+              </div>
+
+        </div>
+        </div>
+        <nav class="mainmenu">
+            <div  routerLink="/dashboardv" class="sidebar-logo">
+              VENDOR PORTAL
+              </div>
+            <ul>
+              <li class="dropdown"  ><a><i class="fa fa-users fa-2x" style="padding-right: 10px;"></i>Profile <span>&rsaquo;</span></a>
+              <ul>
+                <li><a routerLink="/details">View</a></li>
+                <li><a routerLink="/detailsupdate">Edit</a></li>
+              </ul>
+              </li>
+              <li class="dropdown"><a> <i class="fa fa-laptop fa-2x" style="padding-right: 10px;"></i>Dashboard <span>&rsaquo;</span></a>
+                 <ul>
+                    <li><a routerLink="/request">Request for Quotation</a></li>
+                    <li><a routerLink="/purchase">Purchase Order</a></li>
+                    <li><a routerLink="/goods">Goods Receipt</a></li>
+                  </ul>
+              </li>
+              <li class="dropdown"><a><i class="fa fa-bar-chart-o fa-2x" style="padding-right: 10px;"></i> Finanicial sheet <span>&rsaquo;</span></a>
+                 <ul>
+                 <li><a routerLink="/invoicee">Invoice details</a></li>
+                 <li><a routerLink="/payment">Payments and aging</a></li>
+                 <li><a routerLink="/creditmemo">Credit memo</a></li>
+                 <li><a routerLink="/debitmemo">Debit memo</a></li>
+                 </ul>
+              </li>
+             
+              
+            </ul>
+        
+          </nav>
+          <nav >
+          <ul>
+           
+             <a routerLink="/loginv" class="logout">
+               <div style="display: flex;">
+                 <div style="padding-right: 10px;"><i class="fa fa-power-off fa-2x"></i></div>
+                 <div> Logout</div>
+               </div>
+                   
+             </a>
+        
+           
+         </ul>
+        </nav>
+         
+    </body>
+</html>
+
